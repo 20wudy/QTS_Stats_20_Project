@@ -9,3 +9,4 @@
 # 3. Record published headlines and timestamps.
 # 4. Prevent the same headline from appearing twice in a row.
 # 5. Connect news events to stock price changes.
+news <- c()
