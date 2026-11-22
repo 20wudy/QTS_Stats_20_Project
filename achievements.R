@@ -1,11 +1,11 @@
 df_achievements <- data.frame(
-  name_1 = c("first_win","ten_wins","come_back","three_sectors","beat_bots",
-  "on_time","crash_survivor"),
+  name_1 = c("first_win","ten_wins","three_sectors","beat_bots",
+  "on_time"),
   
-  name = c("First Win","Ten Wins","Come Back","Three Sectors","Beat the Bots",
-  "On Time","Crash Survivor"),
+  name = c("First Win","Ten Wins","Three Sectors","Beat the Bots",
+  "On Time"),
   
-  unlocked = rep(FALSE, 7)
+  unlocked = rep(FALSE, 5)
 )
 
 win_sales <- 10
@@ -18,16 +18,6 @@ if (win_sales >= 1){
 if (win_sales >= 10){
   df_achievements$unlocked[df_achievements$name_1 == "ten_wins"] <- TRUE
 }
-
-# Come Back
-starting_value <- 2
-current_value <- 1
-below_starting_value <- current_value < starting_value
-current_value <- 3
-if (below_starting_value == TRUE & current_value > starting_value){
-  df_achievements$unlocked[df_achievements$name_1 == "come_back"] <- TRUE
-}
-
 
 # player's stock
 player_stock <- data.frame(
@@ -58,21 +48,6 @@ if (player_value >= target & timer >0){
 }
 
 
-# Crash Survivor
-market_crashed <- TRUE
-starting_value <- 2
-final_value <-1
-
-if(market_crashed == TRUE & final_value > starting_value){
-  df_achievements$unlocked[df_achievements$name_1 == "crash_survivor"]<- TRUE
-}
-
-df_locked <- df_achievements[df_achievements$unlocked == TRUE, "name"]
-
-
-
-
-
 
 # panel
 cat("$$$$$$$$$$$$$$$$------  Achievements Panel  ------$$$$$$$$$$$$$$$$\n")
@@ -87,30 +62,22 @@ if (df_achievements$unlocked[2]== TRUE){
   cat("*Unlocked*   Ten Wins\n")
 } else {cat("*Locked*   Ten Wins\n")}
 
-# Come Back
-if (df_achievements$unlocked[3]== TRUE){
-  cat("*Unlocked*   Come Back\n")
-} else {cat("*Locked*   Come Back\n")}
 
 # Three Sectors
-if (df_achievements$unlocked[4]== TRUE){
+if (df_achievements$unlocked[3]== TRUE){
   cat("*Unlocked*   Three Sectors\n")
 } else {cat("*Locked*   Three Sectors\n")}
 
 # Beat the Bots
-if (df_achievements$unlocked[5]== TRUE){
+if (df_achievements$unlocked[4]== TRUE){
   cat("*Unlocked*   Beat the Bots\n")
 } else {cat("*Locked*   Beat the Bots\n")}
 
 # On Time
-if (df_achievements$unlocked[6]== TRUE){
+if (df_achievements$unlocked[5]== TRUE){
   cat("*Unlocked*   On Time\n")
 } else {cat("*Locked*   On Time\n")}
 
-# Crash Survivor
-if (df_achievements$unlocked[7]== TRUE){
-  cat("*Unlocked*   Crash Survivor\n")
-} else {cat("*Locked*   Crash Survivor\n")}
 
 
 
